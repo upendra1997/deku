@@ -41,6 +41,7 @@ app.post('/webhook', (req, res) => {
             // Get the webhook event. entry.messaging is an array, but
             // will only ever contain one event, so we get index 0
             let webhook_event = entry.messaging[0];
+            console.log("message recieved")
             console.log(webhook_event);
 
         });
@@ -65,7 +66,7 @@ app.get('/webhook', (req, res) => {
     let mode = req.query['hub.mode'];
     let token = req.query['hub.verify_token'];
     let challenge = req.query['hub.challenge'];
-
+    console.log(JSON.stringify(req.query));
     // Check if a token and mode were sent
     if (mode && token) {
 
